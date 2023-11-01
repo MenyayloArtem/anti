@@ -1,6 +1,6 @@
 Php2/
 users/*.json
-logs/*
+logs/*/
 Php/\.idea
 Php/vendor/
 __pycache__/
