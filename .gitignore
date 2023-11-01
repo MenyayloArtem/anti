@@ -1,5 +1,5 @@
 Php2/
-users/*
+users/*.json
 logs/*
 Php/\.idea
 Php/vendor/
