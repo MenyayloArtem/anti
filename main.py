@@ -7,12 +7,16 @@ from helpers.get_dir import get_dir
 from helpers.write_json import write_json
 from helpers.get_cookies import get_cookies
 import os
+import re
 import json
 import subprocess
 
 def main():
-    parsed_folders = get_dir("./users", files=False)
+    parsed_folders = get_dir("./users", True, ".json")
     parsed_folders = list(map(lambda f : f.split(".")[0], parsed_folders))
+    
+    for p in parsed_folders:
+        print (p)
 
     # Получаем папки
     folders = get_dir("./logs",files=False)
@@ -84,4 +88,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
