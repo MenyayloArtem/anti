@@ -38,14 +38,14 @@ abstract class RexepTypeAbstract
 
     private function setParam($match, $params): void
     {
-        for ($i = 1; $i <= count($params); $i++) {
-            if ($params[$i-1] === 'ram' && (static::class === RexepType1::class || static::class === RexepType2::class)) {
+        for ($i = 0; $i < count($params); $i++) {
+            if ($params[$i] === 'ram' && (static::class === RexepType1::class || static::class === RexepType2::class)) {
                 $match[$i] = round((int)$match[$i] / (1024 ** 3));
             }
-            elseif ($params[$i-1] === 'ram' && static::class === RexepType3::class){
+            elseif ($params[$i] === 'ram' && static::class === RexepType3::class){
                 $match[$i] = round((int)$match[$i] / 1024);
             }
-            $this->result[$params[$i-1]] =  $match[$i] ?? null;
+            $this->result[$params[$i]] =  $match[$i] ?? null;
         }
     }
 
