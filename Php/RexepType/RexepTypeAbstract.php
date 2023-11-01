@@ -30,7 +30,7 @@ abstract class RexepTypeAbstract
             [1 => $param] = $match;
             return $param;
         }, $regularExpression);
-dd($match);
+
         $this->setParam($match, $params);
 
         return $this->result;
