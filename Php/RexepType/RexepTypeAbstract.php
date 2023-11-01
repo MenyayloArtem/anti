@@ -7,6 +7,11 @@ abstract class RexepTypeAbstract
     protected string $path;
     private array $result = [];
 
+    protected function __construct(string $path)
+    {
+        $this->path = $path;
+    }
+
     protected function generateParams(array $regularExpression, $params): array
     {
 //        // Кринж
@@ -19,10 +24,13 @@ abstract class RexepTypeAbstract
 
         $match = array_map(function (string $rx) {
             preg_match('/' . $rx . '/s', (string) file_get_contents("logs/" . $this->path), $match);
+            if (!isset($match[1])) {
+               return null;
+            }
             [1 => $param] = $match;
             return $param;
         }, $regularExpression);
-
+dd($match);
         $this->setParam($match, $params);
 
         return $this->result;

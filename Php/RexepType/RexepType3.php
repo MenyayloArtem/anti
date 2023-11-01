@@ -31,11 +31,6 @@ class RexepType3 extends RexepTypeAbstract
 
     ];
 
-    private function __construct(string $path)
-    {
-        $this->path = $path;
-    }
-
     public static function parse(string $path)
     {
         $self = new self($path);
