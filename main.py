@@ -13,10 +13,7 @@ import subprocess
 
 def main():
     parsed_folders = get_dir("./users", True, ".json")
-    parsed_folders = list(map(lambda f : f.split(".")[0], parsed_folders))
-    
-    for p in parsed_folders:
-        print (p)
+    parsed_folders = list(map(lambda f :os.path.splitext(f)[0], parsed_folders))
 
     # Получаем папки
     folders = get_dir("./logs",files=False)
